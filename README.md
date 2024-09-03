@@ -25,3 +25,7 @@ The most popular webtoons are presented by genre, above
 
 ![image](https://github.com/dchung1209/Webtoon-Data-Analysis/assets/121478848/a1699690-bc82-4809-a0b2-dd35ddf2f6e2)
 Romance and Slice of Life stand out as the most sought-after genres, both in terms of average likes and cumulative popularity. The two most popular genres on the platform are Romance and Slife of Life as well.
+
+## Recommendation System Algorithm
+
+![image](https://github.com/dchung1209/Webtoon-Data-Analysis/blob/main/Data%20Visualization/Genre%20Graph.png?raw=true)
