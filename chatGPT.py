@@ -9,7 +9,12 @@ class HashtagGenerator():
         self.desc = desc
 
     def guess_genre(self):
-        prompt = f"Generate three catchy hashtags for the webtoon {self.title}. For some information, its genre is {self.genre} and its short description is : {self.desc}. All I need is three hashtags without any explanation added. Each hashtag length should be no longer than 10 words"
+        few_shot_prompt = f"Here are some comics and their hashtags."
+        
+        role_prompt = "You are a social media influencer specializing in web comics."
+
+        instruction
+        prompt = f"Generate 5 catchy and genre-appropriate hashtags for a comic titled"
         completion = openai.chat.completions.create(
         model = "gpt-3.5-turbo",
         messages=[
