@@ -1,4 +1,5 @@
 import openai
+import os
 from clean_utils import Cleaner
 from query_utils import Queries
 from chatGPT import HashtagGenerator
@@ -19,7 +20,7 @@ if __name__ == "__main__":
 
     if (answer == "y"):
        print("Enter the API key")
-       openai.api_key = str(input())
+       os.enviorn["OP"] = str(input())
        guess = True
   
     while (guess):

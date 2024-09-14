@@ -46,6 +46,10 @@ class Queries():
     raw = BeautifulSoup(r.content, 'html.parser')
     description = raw.find('meta', {'property': 'og:description'})['content']
     return description
+  
+  def img_query(self):
+    imgs = [p['src'] for p in self.raw.find_all('img')]
+    return imgs
 
   def dict_query(self):
     dict = {'Title': self.title_query(), 'Author': self.author_query(), 'Genre': self.genre_query(), 'Like': self.likes_query(), 'URL' : self.urls_query()}

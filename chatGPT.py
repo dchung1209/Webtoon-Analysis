@@ -1,34 +1,39 @@
-import openai
+from openai import OpenAI
 
 class HashtagGenerator():
-    def __init__(self, target, desc):
+    def __init__(self, target, desc, api_key):
         self.target = target
         self.title = self.target['Title']
         self.genre = self.target['Genre']
-        self.url = self.target['URL']
-        self.desc = desc
+        self.description = desc
+        self.client = OpenAI(api_key = api_key) 
 
     def guess_genre(self):
-        few_shot_prompt = f"Here are some comics and their hashtags."
+        few_shot_prompt = (
+            "Example 1: \n"
+            "Title: The Adventures of Captain Marvel\n"
+            "Genre: Superhero\n"
+            "Hashtags: #Superhero #Action #Marvel #Hero #EpicJourney\n\n"
+            "Example 2:\n"
+            "Title: Celestial Chronicles\n"
+            "Genre: Fantasy\n"
+            "Hashtags: #Fantasy #Magic #Adventure #EpicQuest #Mythical\n\n"
+            "Now, generate 5 catchy and genre-appropriate hashtags for this comic:\n"
+        )
         
-        role_prompt = "You are a social media influencer specializing in web comics."
+        system_prompt = "You are a social media content generator specializing in creating hashtags for web comics."
+        user_prompt = f"Title: {self.title}\nDescription: {self.description}\nGenre: {self.genre}"
 
-        instruction
-        prompt = f"Generate 5 catchy and genre-appropriate hashtags for a comic titled"
-        completion = openai.chat.completions.create(
-        model = "gpt-3.5-turbo",
+        response = self.client.chat.completions.create(
+        model = "gpt-4o-mini",
         messages=[
-            {
-                "role": "system",
-                "content": "You are a social media content generator. Generate hashtags based on the given context",
-            },
-            {
-                "role": "user",
-                "content": prompt,
-            },
+            {"role": "system", "content": system_prompt},
+            {"role": "user","content": few_shot_prompt + user_prompt}
             ],
-        )   
+        )
+
+        hashtags = response.choices[0].message.content
   
-        return completion.choices[0].message.content
+        return hashtags
 
 
