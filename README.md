@@ -10,7 +10,8 @@ The data used in this project was collected from the popular webtoon platform. d
 
 ## Hashtags
 
-The model that is used to generate hashtags is GPT-3.5-turbo. Some examples include:
+The hashtag generation employed GPT-4.0-mini, which leverages role-based and few-shot prompting techniques to create five potential hashtags. Subsequently, an image representative of the comic is queried and analyzed using the CLIP model. The CLIP model evaluates and compares the relevance of each hashtag, selecting the top three most suitable hashtags.
+
 
 | My Irresistible Ex                                        | The Tide                                                     | HapiBuni                                                     | Long After the Ending                                        |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
